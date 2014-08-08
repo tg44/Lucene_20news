@@ -45,7 +45,7 @@ public class LuceneClassificationTest {
             IndexWriter writer = new IndexWriter(dir, iwc);
             
             SetSeparator separator=new SetSeparator();
-            separator.separateSets(new File("news20/20_newsgroup"), 0.2);
+            separator.separatedSets(new File("20news"));
             List<File> trainSet=separator.getTrainSet();
             for(File train:trainSet){
                 Document doc=Parser.parseFile(train);

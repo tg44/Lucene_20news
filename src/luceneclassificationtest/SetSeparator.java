@@ -19,7 +19,24 @@ public class SetSeparator {
         return trySet;
     }
     
-    
+    public void separatedSets(File parentDic){
+        for(File separatedDic:parentDic.listFiles()){
+            if(separatedDic.getName().contains("train")){
+                for(File classDic:separatedDic.listFiles()){
+                    for(File doc:classDic.listFiles()){
+                        trainSet.add(doc);
+                    }
+                }
+            }
+            if(separatedDic.getName().contains("test")){
+                for(File classDic:separatedDic.listFiles()){
+                    for(File doc:classDic.listFiles()){
+                        trySet.add(doc);
+                    }
+                }
+            }
+        }
+    }
     
     public void separateSets(File parentDic, double trySetPercent){
         for(File classDic:parentDic.listFiles()){
